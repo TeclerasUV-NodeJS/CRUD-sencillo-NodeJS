@@ -10,14 +10,14 @@ module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: false }));
 	app.use('/', router);
 
-    router.get('/consultar', function (req, res, next) {
+    router.get('/consultar', function (request, response, next) {
       var datos_prueba= [
         {nombre: "Erick",
         apellido: "Merino"},
         {nombre: "Hola",
         apellido: "Chao"}
       ]
-            res.render('consultar', {
+            response.render('consultar', {
               datos: datos_prueba
             });
     });

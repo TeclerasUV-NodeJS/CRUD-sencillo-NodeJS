@@ -24,7 +24,7 @@ module.exports = function(app, config) {
     extended: true
   }));
   app.use(cookieParser());
-  app.use(session({secret: 'farmautomatico'}));
+  app.use(session({secret: config.palabra_secreta}));
   app.use(compress());
   //app.use(express.static(config.root + '/public'));
   app.use('/public', express.static(config.root + '/public'));

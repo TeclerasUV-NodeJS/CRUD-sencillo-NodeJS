@@ -1,5 +1,11 @@
 <% include header %>
 
+<%if(error==true){%>
+  <script type="text/javascript">
+    alert("error");
+  </script>
+<%}%>
+
 Registro Profesor:
 <form class="" action="/registro" method="post">
   Ingrese su rut sin dígito verificador ni puntos.

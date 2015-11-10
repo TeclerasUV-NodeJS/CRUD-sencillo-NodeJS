@@ -1,7 +1,7 @@
 var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'development';
- 
+
 //port:3000
 var config = {
   development: {
@@ -10,7 +10,8 @@ var config = {
       name: 'farmautomatico'
     },
     port: 3000,
-    db: 'jdbc:mysql://localhost:3306/farmautomatico'
+    db: 'jdbc:mysql://localhost:3306/farmautomatico',
+    palabra_secreta: "teclerasuv"
   },
 
   test: {
