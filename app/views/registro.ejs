@@ -1,0 +1,31 @@
+<% include header %>
+
+Registro Profesor:
+<form class="" action="/registro" method="post">
+  Ingrese su rut sin dígito verificador ni puntos.
+  <br>
+  <input type="number" name="rut" value="" required>
+  <br>
+  Ingrese su nombre:
+  <br>
+  <input type="text" name="nombre" value="" required>
+  <br>
+  Ingrese su email
+  <input type="email" name="email" value="" required>
+  <br>
+  Ingrese su contraseña:
+  <br>
+  <input type="password" name="contrasena" value="" required>
+  <br>
+  Repita su contraseña:
+  <br>
+  <input type="password" name="contrasena2" value="" required>
+  <br>
+  Acepta términos y condiciones
+  <br>
+  <input type="checkbox" name="acepto" value="" required> Acepto <a href="terminos">términos y condiciones.</a>
+  <br>
+  <input type="submit" name="submit" value="Registrarse">
+</form>
+
+<% include footer %>

@@ -1,0 +1,14 @@
+<% include header %>
+
+<!-- for datos -->
+<%for(i in datos){%>
+  nombre:
+  <br>
+  <%=datos[i].nombre%>
+  <br>
+  Apellido:
+  <%=datos[i].apellido%>
+  <br>
+<%}%>
+
+<% include footer %>
