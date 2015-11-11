@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  auth = require("../middleware/auth.js"),
+  auth_docente = require("../middleware/auth_docente.js"),
   queries = require('../queries/index.js');
 
 module.exports = function(app) {
@@ -12,10 +12,10 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/insertar', auth, function(request, response, next) {
+  router.get('/insertar', auth_docente, function(request, response, next) {
     response.render('insertar', {});
   });
-  router.post("/insertar", function(request, response, next) {
+  router.post("/insertar", auth_docente, function(request, response, next) {
     queries.inserts.insertar_asignatura(request.body.id, request.body.nombre, request.body.codigo)
       .catch(function(error) {
         // Ooops, do some error-handling

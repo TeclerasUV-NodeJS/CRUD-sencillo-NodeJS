@@ -1,9 +1,13 @@
 <% include header %>
 
-Login profesor
+
 <form action="/login" class="" method="post">
   <div class="row form-group form-group-md row-centered">
     <div class="col-sm-12 col-md-8 col-lg-6 col-centered">
+      <input type="radio" name="docoest" value="docente"> Soy Docente
+      <br>
+      <input type="radio" name="docoest" value="estudiante"> Soy Estudiante
+      <br>
       Ingrese su rut sin dígito verificador ni puntos.
       <input class="form-control" name="rut" required type="number" value="">
       <br>
@@ -13,7 +17,8 @@ Login profesor
       <br>
       <input class="form-control" name="name" type="submit" value="Ingresar">
       Si no tiene cuenta, puede
-      <a href="registro">Registrarse</a>
+      <a href="registroestudiante">Registrarse Estudiante</a>
+      <a href="registrodocente">Registrarse docente</a>
     </div>
   </div>
 </form>

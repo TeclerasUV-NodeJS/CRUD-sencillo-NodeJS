@@ -17,7 +17,8 @@ db.sequelize
     throw new Error(e);
   });
 
-var createServer = function() {
+var createServer = {
+  run: function() {
   db.sequelize
 	  .sync()
 	  .then(function () {
@@ -25,7 +26,8 @@ var createServer = function() {
 	  }).catch(function (e) {
 	    throw new Error(e);
   });
-
+},
+  miapp: app
 };
- 
+
 module.exports = createServer;

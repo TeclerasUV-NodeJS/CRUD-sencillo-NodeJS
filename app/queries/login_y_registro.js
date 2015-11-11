@@ -20,5 +20,23 @@ exports.consultas = {
         // Ooops, do some error-handling
         console.log(error);
       })
+  },
+  buscar_docentes: db.TV_DOCENTE.findAll(),
+  insertar_un_docente: function(rut, nombre, correo, contrasena) {
+    return db.TV_DOCENTE
+      .build({
+        DOC_ID: rut,
+        DOC_NOMBRE: nombre,
+        DOC_CORREO: correo,
+        DOC_PASSWORD: contrasena
+      })
+      .save()
+      .then(function(anotherTask) {
+        // you can now access the currently saved task with the variable anotherTask... nice!
+        console.log(anotherTask);
+      }).catch(function(error) {
+        // Ooops, do some error-handling
+        console.log(error);
+      })
   }
 }

@@ -13,13 +13,13 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/registro', function(request, response, next) {
+  router.get('/registroestudiante', function(request, response, next) {
     var error = (typeof request.query.error == 'undefined') ? request.query.error : false;
-    response.render('registro', {
+    response.render('registroestudiante', {
       error: error
     });
   });
-  router.post('/registro', function(request, response, next) {
+  router.post('/registroestudiante', function(request, response, next) {
     console.log(request.body);
     queries.login_y_registro.buscar_estudiantes.then(function(resultado_estudiantes) {
       console.log("resultado estudiantes:", resultado_estudiantes);
@@ -49,9 +49,10 @@ module.exports = function(app) {
       console.log("pass_hasheada: ", pass_hasheada);
       queries.login_y_registro.insertar_un_estudiante(request.body.rut, request.body.nombre, request.body.email, pass_hasheada);
       request.session.name = request.body.rut;
+      request.session.tipo = "estudiante";
       response.redirect("menu");
     } else {
-      response.redirect("registro?error=true");
+      response.redirect("registroestudiante?error=true");
     }
   });
 };

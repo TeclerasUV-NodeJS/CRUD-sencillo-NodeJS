@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>index.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../", thisFile = "app\\models\\index.js", defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>index.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">),</span>
+  <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">),</span>
+  <span class="nx">Sequelize</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sequelize&#39;</span><span class="p">),</span>
+  <span class="nx">config</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../config/config&#39;</span><span class="p">),</span>
+  <span class="nx">db</span> <span class="o">=</span> <span class="p">{};</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>db, user, pw</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">sequelize</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Sequelize</span><span class="p">(</span><span class="s1">&#39;sql396080&#39;</span><span class="p">,</span> <span class="s1">&#39;sql396080&#39;</span><span class="p">,</span> <span class="s1">&#39;xE1!mJ2!&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;sql3.freesqldatabase.com&#39;</span><span class="p">,</span>
+  <span class="nx">dialect</span><span class="o">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+  <span class="nx">autoIncrement</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">pool</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="nx">min</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">idle</span><span class="o">:</span> <span class="mi">10</span>
+  <span class="p">},</span>
+  <span class="nx">define</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">timestamps</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">freezeTableName</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">underscored</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+
+<span class="p">});</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>var sequelize = new Sequelize(config.db, "root", "", {
+storage: config.storage
+});  </p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">file</span> <span class="o">!==</span> <span class="s1">&#39;index.js&#39;</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">[</span><span class="s1">&#39;import&#39;</span><span class="p">](</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="nx">file</span><span class="p">));</span>
+  <span class="nx">db</span><span class="p">[</span><span class="nx">model</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">db</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">modelName</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;associate&#39;</span> <span class="k">in</span> <span class="nx">db</span><span class="p">[</span><span class="nx">modelName</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">db</span><span class="p">[</span><span class="nx">modelName</span><span class="p">].</span><span class="nx">associate</span><span class="p">(</span><span class="nx">db</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">sequelize</span> <span class="o">=</span> <span class="nx">sequelize</span><span class="p">;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">Sequelize</span> <span class="o">=</span> <span class="nx">Sequelize</span><span class="p">;</span>
+
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>asociaciones creadas a mano, el generador no las hace. También podrían ir en un archivo separado y exportarlo.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_ASISTENCIA_CLASE</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_ESTUDIANTE</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_ASISTENCIA_CLASE</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_CLASE</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_CLASE</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_PARALELO</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PARALELO</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_ASIGNATURA</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PARALELO</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_DOCENTE</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_MAESTRA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_PARALELO</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_REALIZADA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_MAESTRA</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_REALIZADA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_CLASE</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_RESPONDIDA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_REALIZADA</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_RESPONDIDA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_ESTUDIANTE</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_RESPONDIDA</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_RESPUESTAS</span><span class="p">);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">TV_RESPUESTAS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">TV_PREGUNTA_MAESTRA</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">db</span><span class="p">;</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

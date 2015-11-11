@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  auth = require("../middleware/auth.js"),
+  auth_general = require("../middleware/auth_general.js"),
   queries = require('../queries/index.js');
 
 module.exports = function(app) {
@@ -12,7 +12,7 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/consultaruno/:idasignatura', auth, function(request, response, next) {
+  router.get('/consultaruno/:idasignatura', auth_general, function(request, response, next) {
     queries.consultas.buscar_una_asignatura(request.params.idasignatura).then(function(asignatura_res) {
       var asignatura;
       console.log("asignatura_res uno",asignatura_res);

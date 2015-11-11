@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  auth = require("../middleware/auth.js"),
+  auth_general = require("../middleware/auth_general.js"),
   queries = require('../queries/index.js'),
   db = require('../models');
 
@@ -13,11 +13,12 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/menu', auth, function(request, response, next) {
+  router.get('/menu', auth_general, function(request, response, next) {
     response.render('menu', {});
   });
-  router.post('/signout', auth, function(request, response, next) {
+  router.post('/signout', auth_general, function(request, response, next) {
     request.session.name=undefined;
+    request.session.tipo=undefined;
     response.redirect("/");
   });
 }

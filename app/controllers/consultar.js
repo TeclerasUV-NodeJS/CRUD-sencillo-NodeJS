@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  auth = require("../middleware/auth.js"),
+  auth_general = require("../middleware/auth_general.js"),
   queries = require('../queries/index.js');
 
 module.exports = function(app) {
@@ -12,7 +12,7 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/consultar', auth, function(request, response, next) {
+  router.get('/consultar', auth_general, function(request, response, next) {
     var datos_prueba = [{
       nombre: "Erick",
       apellido: "Merino"

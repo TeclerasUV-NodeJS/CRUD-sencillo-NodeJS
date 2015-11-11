@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "", thisFile = "test.js", defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container"><div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+      <tr>
+        <td class="docs">
+          <h1>test.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">tasks</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">).</span><span class="nx">tasks</span><span class="p">),</span>
+  <span class="nx">connect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp-connect&#39;</span><span class="p">),</span>
+  <span class="nx">port</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">,</span>
+  <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./app.js&#39;</span><span class="p">),</span>
+  <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;superagent&#39;</span><span class="p">),</span>
+  <span class="nx">expect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chai&#39;</span><span class="p">).</span><span class="nx">expect</span><span class="p">;</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>console.log(expect);</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">app</span><span class="p">;</span>
+<span class="nx">app</span> <span class="o">=</span> <span class="nx">server</span><span class="p">();</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<p>console.log(tasks);</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;test/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should homepage respond to GET&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">done</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+      <span class="nx">request</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;termino /&quot;</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">res</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span><span class="p">;</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;lo logramos /&quot;</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+      <span class="p">})</span>
+
+    <span class="p">})</span>
+    <span class="nx">after</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;cerrando&quot;</span><span class="p">);</span>
+    <span class="k">return</span> 
+    <span class="nx">app</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="p">});</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;remedio&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should remedio respond to GET&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">){</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">done</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+      <span class="nx">request</span>
+        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://localhost:3000/remedio&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">query</span><span class="p">({</span><span class="nx">remedios</span><span class="o">:</span> <span class="s1">&#39;Loratadina&#39;</span><span class="p">,</span> <span class="nx">ciudad</span><span class="o">:</span> <span class="mi">37</span><span class="p">})</span>
+        <span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;termino remedio&quot;</span><span class="p">);</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">res</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span><span class="p">;</span>
+          <span class="nx">expect</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;lo logramos remedio&quot;</span><span class="p">);</span>
+          <span class="nx">done</span><span class="p">();</span>
+
+      <span class="p">})</span>
+
+    <span class="p">})</span>
+    <span class="nx">after</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;cerrando&quot;</span><span class="p">);</span>
+    <span class="k">return</span> 
+    <span class="nx">app</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="p">});</span>
+</pre></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

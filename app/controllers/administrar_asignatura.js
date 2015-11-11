@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  auth = require("../middleware/auth.js"),
+  auth_docente = require("../middleware/auth_docente.js"),
   queries = require('../queries/index.js');
 
 module.exports = function(app) {
@@ -12,7 +12,7 @@ module.exports = function(app) {
   }));
   app.use('/', router);
 
-  router.get('/administrar_asignatura', auth, function(request, response, next) {
+  router.get('/administrar_asignatura', auth_docente, function(request, response, next) {
     queries.consultas.buscar_una_asignatura(request.query.idasignatura).then(function(asignatura_res) {
       var asignatura;
       console.log(asignatura_res);
@@ -30,7 +30,7 @@ module.exports = function(app) {
       });
     })
   })
-  router.post('/administrar_asignatura', function(request, response, next) {
+  router.post('/administrar_asignatura', auth_docente, function(request, response, next) {
     switch (request.body.opcion) {
       case 'volver':
         response.redirect("/menu");
