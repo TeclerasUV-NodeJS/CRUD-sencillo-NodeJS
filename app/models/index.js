@@ -11,7 +11,7 @@ var sequelize = new Sequelize('sql396080', 'sql396080', 'xE1!mJ2!', {
   autoIncrement: true,
   pool: {
     max: 50,
-    min: 0,
+    min: 1,
     idle: 10
   },
   define: {

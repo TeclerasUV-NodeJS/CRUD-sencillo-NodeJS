@@ -1,11 +1,16 @@
 <% include header %>
 
-<form class="" action="/consultar" method="post">
-
-  <!-- consultar un dato-->
-  ¿Está seguro de eliminarlo?
-  <input type="submit" name="eliminar" value="Eliminar">
-  <a href="javascript:history.back()">Volver Atrás</a>
+<form action="/insertar" class="" method="post">
+  <label for="id"></label>
+  <input id="id" name="id" type="text" value="">
+  <br>
+  <label for="nombre">Nombre:</label>
+  <input id="nombre" name="nombre" type="text" value="">
+  <br>
+  <label for="codigo">Código:</label>
+  <input id="codigo" name="codigo" type="text" value="">
+  <br>
+  <input class="form-control" name="insertar" type="submit" value="Insertar">
 </form>
 
 <% include footer %>

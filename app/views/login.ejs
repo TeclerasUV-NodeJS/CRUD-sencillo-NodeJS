@@ -1,16 +1,21 @@
 <% include header %>
 
 Login profesor
-<form class="" action="/login" method="post">
-  Ingrese su rut sin dígito verificador ni puntos.
-  <input type="number" name="rut" value="" required>
-  <br>
-  Ingrese su contraseña:
-  <br>
-  <input type="password" name="contrasena" value="" required>
-  <br>
-  <input type="submit" name="name" value="Ingresar">
-  Si no tiene cuenta, puede <a href="registro">Registrarse</a>
+<form action="/login" class="" method="post">
+  <div class="row form-group form-group-md row-centered">
+    <div class="col-sm-12 col-md-8 col-lg-6 col-centered">
+      Ingrese su rut sin dígito verificador ni puntos.
+      <input class="form-control" name="rut" required type="number" value="">
+      <br>
+      Ingrese su contraseña:
+      <br>
+      <input class="form-control" name="contrasena" required type="password" value="">
+      <br>
+      <input class="form-control" name="name" type="submit" value="Ingresar">
+      Si no tiene cuenta, puede
+      <a href="registro">Registrarse</a>
+    </div>
+  </div>
 </form>
 
 <% include footer %>

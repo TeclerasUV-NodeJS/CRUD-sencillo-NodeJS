@@ -1,7 +1,12 @@
 var db = require('../models');
 
 exports.consultas = {
-  buscarUsuarios : db.TV_ESTUDIANTE.findAll({
-    attributes: ['EST_ID', 'EST_CORREO', 'EST_NOMBRE', 'EST_PASSWORD']
-  })
-}
+    buscar_asignaturas: db.TV_ASIGNATURA.findAll(),
+    buscar_una_asignatura: function(id) {
+      return db.TV_ASIGNATURA.findOne({
+        where: {
+          ASI_ID: id
+        }
+      })
+    }
+  }
