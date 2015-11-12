@@ -14,6 +14,7 @@ npm install -g gulp
 gulp
 
 ##Base de datos
+Instalar MySQL desde la página respectiva (Google).
 La base de datos es remota, así que no tienen que instalarla :D
 
 ##Tests
