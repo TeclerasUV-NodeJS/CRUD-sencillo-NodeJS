@@ -17,11 +17,14 @@ module.exports = function(app) {
   });
   router.post("/insertar", auth_docente, function(request, response, next) {
     queries.inserts.insertar_asignatura(request.body.id, request.body.nombre, request.body.codigo)
+    /*En este caso puse el catch acá, para eso, tengo que quitarlo de las consultas
+    */
       .catch(function(error) {
         // Ooops, do some error-handling
         console.log(error);
+        /*Como ven, acá hay dos redirect, pero no se ejecutan uno y después el otro, ya que cuando entra a un callback, el flujo de ejecución cambia
+        */
         response.redirect("/insertar");
-        next();
       })
     response.redirect("/consultar");
   })

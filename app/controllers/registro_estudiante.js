@@ -26,7 +26,6 @@ module.exports = function(app) {
       if (resultado_estudiantes != null && resultado_estudiantes.length > 0) {
         console.log("no vacio");
         for (user in resultado_estudiantes) {
-          //console.log(resultado_estudiantes[user]);
           if (resultado_estudiantes[user].dataValues.EST_ID != request.body.rut) {
             next();
           }
@@ -40,7 +39,6 @@ module.exports = function(app) {
 
 
   }, function(request, response, next) {
-    //console.log("funcion next", request);
     if (request.body.contrasena == request.body.contrasena2) {
       var pass_hasheada = crypto
         .createHmac("sha1", config.palabra_secreta)

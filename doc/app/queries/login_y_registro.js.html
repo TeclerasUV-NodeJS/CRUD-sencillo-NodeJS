@@ -81,6 +81,46 @@
         <td class="code highlight"><div class="highlight"><pre>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
       <span class="p">})</span>
+  <span class="p">},</span>
+  <span class="nx">buscar_docentes</span><span class="o">:</span> <span class="nx">db</span><span class="p">.</span><span class="nx">TV_DOCENTE</span><span class="p">.</span><span class="nx">findAll</span><span class="p">(),</span>
+  <span class="nx">insertar_un_docente</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rut</span><span class="p">,</span> <span class="nx">nombre</span><span class="p">,</span> <span class="nx">correo</span><span class="p">,</span> <span class="nx">contrasena</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">db</span><span class="p">.</span><span class="nx">TV_DOCENTE</span>
+      <span class="p">.</span><span class="nx">build</span><span class="p">({</span>
+        <span class="nx">DOC_ID</span><span class="o">:</span> <span class="nx">rut</span><span class="p">,</span>
+        <span class="nx">DOC_NOMBRE</span><span class="o">:</span> <span class="nx">nombre</span><span class="p">,</span>
+        <span class="nx">DOC_CORREO</span><span class="o">:</span> <span class="nx">correo</span><span class="p">,</span>
+        <span class="nx">DOC_PASSWORD</span><span class="o">:</span> <span class="nx">contrasena</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">anotherTask</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<p>you can now access the currently saved task with the variable anotherTask... nice!</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anotherTask</span><span class="p">);</span>
+      <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<p>Ooops, do some error-handling</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">})</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

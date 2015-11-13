@@ -39,9 +39,8 @@
         </td>
         <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span>
   <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">(),</span>
-  <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;../middleware/auth.js&quot;</span><span class="p">),</span>
-  <span class="nx">queries</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../queries/index.js&#39;</span><span class="p">),</span>
-  <span class="nx">db</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../models&#39;</span><span class="p">);</span>
+  <span class="nx">auth_general</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;../middleware/auth_general.js&quot;</span><span class="p">),</span>
+  <span class="nx">queries</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../queries/index.js&#39;</span><span class="p">);</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
 
@@ -52,11 +51,29 @@
   <span class="p">}));</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">router</span><span class="p">);</span>
 
-  <span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/menu&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/menu&#39;</span><span class="p">,</span> <span class="nx">auth_general</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="p">{});</span>
   <span class="p">});</span>
-  <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/signout&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/signout&#39;</span><span class="p">,</span> <span class="nx">auth_general</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<div class="dox">
+  <div class="summary"><p>Para cerrar una sesión de manera artesanal, simplemente declaramos no definidos los campos nombre y tipo de las coockies</p>
+  </div>
+  <div class="body">
+  </div>
+</div>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>
     <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="kc">undefined</span><span class="p">;</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">tipo</span><span class="o">=</span><span class="kc">undefined</span><span class="p">;</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="p">}</span>

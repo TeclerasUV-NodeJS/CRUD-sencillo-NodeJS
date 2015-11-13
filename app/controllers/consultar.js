@@ -11,8 +11,11 @@ module.exports = function(app) {
     extended: false
   }));
   app.use('/', router);
-
+/*Este router sólo consulta todas las asignaturas, no recibe nada
+*/
   router.get('/consultar', auth_general, function(request, response, next) {
+    /*Estos son datos de prueba, simplemente para que vean que se puede :v
+     */
     var datos_prueba = [{
       nombre: "Erick",
       apellido: "Merino"
@@ -23,6 +26,10 @@ module.exports = function(app) {
 
     queries.consultas.buscar_asignaturas.then(function(asignaturas_res){
       var asignaturas = [];
+      /*for i in algo es azúcar sintáctico de javascript para:
+      var i = 0;
+      for(i=0;i<algo.length;i++)
+      */
       for(i in asignaturas_res){
         asignaturas.push({
           enlace: "/consultaruno/"+asignaturas_res[i].dataValues.ASI_ID,

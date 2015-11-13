@@ -19,31 +19,47 @@
     <div id="tree"></div>
     <div id="headings">
       <div class="heading h1">
-        <a href="#modelos">Modelos</a>
+        <a href="#views">Views</a>
       </div>
       <div class="heading h2">
-        <a href="#c%C3%B3mo%20hacerlos">Cómo hacerlos</a>
+        <a href="#ejemplo">Ejemplo</a>
       </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
   <div id="container"><div class="docs markdown">
-<div class="pilwrap" id="modelos">
+<div class="pilwrap" id="views">
   <h1>
-    <a href="#modelos" name="modelos" class="pilcrow">&#182;</a>
-    Modelos
+    <a href="#views" name="views" class="pilcrow">&#182;</a>
+    Views
   </h1>
 </div>
 
 
+<p>Las vistas están en archivos ejs, que son html con código javascript embebido.</p>
 
-<div class="pilwrap" id="c%C3%B3mo%20hacerlos">
+<p>El código javascript va entre "&lt;%" y "%>", y cuando se quiere retornar un valor, es:</p>
+
+<div class='highlight'><pre><code language=''>&lt;%=valor%&gt;
+</code></pre></div>
+
+<p>Este código javascript se ejecuta en el servidor, por lo que no se les ocurra usar jquery o document.getElementById o esas yerbas, porque les dará error.</p>
+
+
+<div class="pilwrap" id="ejemplo">
   <h2>
-    <a href="#c%C3%B3mo%20hacerlos" name="c%C3%B3mo%20hacerlos" class="pilcrow">&#182;</a>
-    Cómo hacerlos
+    <a href="#ejemplo" name="ejemplo" class="pilcrow">&#182;</a>
+    Ejemplo
   </h2>
 </div>
-</div>
+
+
+<div class='highlight'><pre><code language=''>&lt;%for(i in variable){%&gt;
+  &lt;br&gt;
+  mi variable es:
+&lt;%=variable[i]%&gt;
+&lt;%}%&gt;
+</code></pre></div></div>
   </div>
 </body>
 </html>

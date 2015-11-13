@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>registro.js</title>
+  <title>registro_estudiante.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" media="all" href="../../doc-style.css" />
   <script src="../../doc-filelist.js"></script>
   <script>
-    var relativeDir = "../../", thisFile = "app\\controllers\\registro.js", defaultSidebar = true;
+    var relativeDir = "../../", thisFile = "app\\controllers\\registro_estudiante.js", defaultSidebar = true;
   </script>
   <script src="../../doc-script.js"></script>
 </head>
@@ -26,7 +26,7 @@
   <tbody>
       <tr>
         <td class="docs">
-          <h1>registro.js</h1>
+          <h1>registro_estudiante.js</h1>
         </td>
         <td class="code highlight"></td>
       </tr>
@@ -52,31 +52,19 @@
   <span class="p">}));</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">router</span><span class="p">);</span>
 
-  <span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/registro&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/registroestudiante&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">error</span> <span class="o">=</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">request</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">request</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">error</span> <span class="o">:</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;registro&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;registroestudiante&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">error</span><span class="o">:</span> <span class="nx">error</span>
     <span class="p">});</span>
   <span class="p">});</span>
-  <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/registro&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/registroestudiante&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
     <span class="nx">queries</span><span class="p">.</span><span class="nx">login_y_registro</span><span class="p">.</span><span class="nx">buscar_estudiantes</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resultado_estudiantes</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;resultado estudiantes:&quot;</span><span class="p">,</span> <span class="nx">resultado_estudiantes</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">resultado_estudiantes</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">resultado_estudiantes</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;no vacio&quot;</span><span class="p">);</span>
         <span class="k">for</span> <span class="p">(</span><span class="nx">user</span> <span class="k">in</span> <span class="nx">resultado_estudiantes</span><span class="p">)</span> <span class="p">{</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
-</div>
-<p>console.log(resultado_estudiantes[user]);</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
           <span class="k">if</span> <span class="p">(</span><span class="nx">resultado_estudiantes</span><span class="p">[</span><span class="nx">user</span><span class="p">].</span><span class="nx">dataValues</span><span class="p">.</span><span class="nx">EST_ID</span> <span class="o">!=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">rut</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">next</span><span class="p">();</span>
           <span class="p">}</span>
@@ -90,18 +78,6 @@
 
 
   <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-
-</pre></div>
-        </td>
-      </tr>
-      <tr>
-        <td class="docs">
-<div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
-</div>
-<p>console.log("funcion next", request);</p>
-        </td>
-        <td class="code highlight"><div class="highlight"><pre>
     <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">contrasena</span> <span class="o">==</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">contrasena2</span><span class="p">)</span> <span class="p">{</span>
       <span class="kd">var</span> <span class="nx">pass_hasheada</span> <span class="o">=</span> <span class="nx">crypto</span>
         <span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="s2">&quot;sha1&quot;</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">palabra_secreta</span><span class="p">)</span>
@@ -110,9 +86,10 @@
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;pass_hasheada: &quot;</span><span class="p">,</span> <span class="nx">pass_hasheada</span><span class="p">);</span>
       <span class="nx">queries</span><span class="p">.</span><span class="nx">login_y_registro</span><span class="p">.</span><span class="nx">insertar_un_estudiante</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">rut</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="nx">pass_hasheada</span><span class="p">);</span>
       <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">rut</span><span class="p">;</span>
+      <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">tipo</span> <span class="o">=</span> <span class="s2">&quot;estudiante&quot;</span><span class="p">;</span>
       <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s2">&quot;menu&quot;</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s2">&quot;registro?error=true&quot;</span><span class="p">);</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s2">&quot;registroestudiante?error=true&quot;</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">});</span>
 <span class="p">};</span>
