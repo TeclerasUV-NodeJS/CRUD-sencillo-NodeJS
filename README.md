@@ -6,7 +6,7 @@ instalar nodejs
 
 en la consola:
 
-cd <carpeta>
+cd \<carpeta\>
 
 npm install
 
