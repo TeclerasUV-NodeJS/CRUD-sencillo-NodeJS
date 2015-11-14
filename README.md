@@ -6,6 +6,8 @@ instalar nodejs
 
 en la consola:
 
+cd <carpeta>
+
 npm install
 
 npm install -g gulp
@@ -14,7 +16,7 @@ npm install -g gulp
 gulp
 
 ##Base de datos
-Instalar MySQL desde la página respectiva (Google).
+Instalar MySQL desde la página respectiva.
 La base de datos es remota, así que no tienen que instalarla :D
 
 ##Tests
