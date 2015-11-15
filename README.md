@@ -6,14 +6,23 @@ instalar nodejs
 
 en la consola:
 
-cd \<carpeta\>
+````cd \<carpeta\>````
 
-npm install
+````npm install````
 
-npm install -g gulp
+````npm install -g gulp````
 
 ##Arrancar
+````
 gulp
+````
+
+### Parar
+Ctrl+C en la consola
+
+En windows sirve cerrar la consola.
+
+Si lo corren desde un gestor de gulp, como desde atom o algún ide, usen: ````gulp parar````
 
 ##Base de datos
 Instalar MySQL desde la página respectiva.
