@@ -24,9 +24,20 @@ En windows sirve cerrar la consola.
 
 Si lo corren desde un gestor de gulp, como desde atom o algún ide, usen: ````gulp parar````
 
+
 ##Base de datos
 Instalar MySQL desde la página respectiva.
 La base de datos es remota, así que no tienen que instalarla :D
+
+##Abrir
+
+En un navegador web, como firefox o chrome, escribir:
+
+````
+localhost:3000
+````
+
+fíjense que no tenga "www" ni ".com", ya que firefox lo agrega a veces.
 
 ##Tests
 No sirven. los probé para farmautomático xD
