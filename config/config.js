@@ -20,7 +20,8 @@ var config = {
       name: 'farmautomatico'
     },
     port: 3000,
-    db: 'mysql://localhost/farmautomatico-test'
+    db: 'mysql://localhost/farmautomatico-test',
+    palabra_secreta: "teclerasuv"
   },
 
   production: {
@@ -29,7 +30,8 @@ var config = {
       name: 'farmautomatico'
     },
     port: 3000,
-    db: 'mysql://localhost/farmautomatico-production'
+    db: 'mysql://localhost/farmautomatico-production',
+    palabra_secreta: "teclerasuv"
   }
 };
 

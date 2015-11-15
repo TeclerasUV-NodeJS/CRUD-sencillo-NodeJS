@@ -3,11 +3,11 @@ var glob = require('glob');
 
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
 var bodyParser = require('body-parser');
-var compress = require('compression');
-var methodOverride = require('method-override');
+//var compress = require('compression');
+//var methodOverride = require('method-override');
 
 module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
@@ -23,12 +23,12 @@ module.exports = function(app, config) {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
-  app.use(cookieParser());
+  //app.use(cookieParser());
   app.use(session({secret: config.palabra_secreta}));
-  app.use(compress());
+  //app.use(compress());
   //app.use(express.static(config.root + '/public'));
   app.use('/public', express.static(config.root + '/public'));
-  app.use(methodOverride());
+  //app.use(methodOverride());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
